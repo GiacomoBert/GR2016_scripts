@@ -79,6 +79,18 @@
 %           xEnd      : end of the search window (seconds)
 %           elec      : space-separated list of ROI electrodes
 %
+%       IMPORTANT - REFERENCE VALUES FOR REPRODUCTION
+%       The canonical search windows and ROI electrodes used in the
+%       published analysis are those reported in the paper (see Table 2
+%       and the Methods/Supplementary Methods of Bertazzoli et al.) and
+%       in the Zenodo archive associated with this work:
+%           https://doi.org/10.5281/zenodo.17162745
+%       The local spreadsheet shipped with this script reflects the
+%       intermediate values produced by the collapsed-localizer
+%       procedure. When reproducing the analysis, please use the
+%       latencies and electrode lists reported in the paper and on
+%       Zenodo as ground truth.
+%
 %   - `TEP_DTI_measures_total_*.xlsx`, sheet 'Sheet1'
 %       Master subject list (column `ID_subj_NT`) used to restrict the
 %       analysis to participants included in the present study.
