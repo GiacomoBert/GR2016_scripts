@@ -10,7 +10,8 @@ This repository contains the peak-extraction script used in:
 > Bertazzoli G., Canu E., Bagattini C., et al.
 > *Network-targeted neurophysiological biomarkers of dysconnectivity and
 > cognitive decline in Alzheimer's disease.*
-> https://doi.org/10.5281/zenodo.17162745
+> [https://doi.org/10.5281/zenodo.17162745](https://doi.org/10.5281/zenodo.17162745)
+
 
 For the upstream preprocessing pipeline (SOUND + SSP-SIR + ICA), MRI and
 DWI analyses, and downstream statistical analyses in R, please refer to
@@ -61,44 +62,7 @@ at the group level *before* subject-level extraction.
    subject-by-measure table and exported as CSV for downstream
    statistical analysis in R.
 
----
-
-## Repository contents
-
-```
-.
-├── peak_extraction_commented.m            % the main script
-├── peak_extraction_grand_grand_average.xlsx 
-└── README.md
-```
-
-`peak_extraction_grand_grand_average.xlsx` is generated upstream from the
-grand-grand-average
-
----
-
-## Dependencies
-
-- MATLAB R2020a or later (tested on R2024b)
-- [EEGLAB](https://sccn.ucsd.edu/eeglab/) — tested with `eeglab2024.2`
-- [FieldTrip](https://www.fieldtriptoolbox.org/) — tested with `fieldtrip-20240731`
-- [`natsortfiles`](https://www.mathworks.com/matlabcentral/fileexchange/47434-natural-order-filename-sort) (File Exchange, Stephen Cobeldick)
-
-Adjust the `addpath` calls at the top of `peak_extraction_commented.m`
-to point to the local installations of each toolbox on your machine.
-
----
-
-## Inputs
-
-| File | Role |
-|------|------|
-| `data_all_avg.mat` | Cell array of subject-level FieldTrip timelock structures, one cell per stimulation site (LF, RF, LP, RP). Each cell contains a list of subject × session averages already collapsed across trials. |
-| `peak_extraction_grand_grand_average.xlsx` (sheet `TEP_test`) | Peak-definition table. Columns: `area` (stimulation site), `peakName` (e.g. `N20F_amp_L_DLPFC`), `start` and `xEnd` (search-window boundaries in seconds), `elec` (space-separated list of ROI electrodes). |
-| `TEP_DTI_measures_total_*.xlsx` (sheet `Sheet1`) | Master subject list (column `ID_subj_NT`). Used to restrict the analysis to participants included in the present study. |
-
-All absolute paths in the script point to the original analysis machine.
-Adapt them to your local directory layout before running.
+> [https://doi.org/10.5281/zenodo.17162745](https://doi.org/10.5281/zenodo.17162745)
 
 ---
 
@@ -115,37 +79,7 @@ All outputs are written to `./peak_extraction/`:
 - One `.fig` + one `.tif` per (subject × peak), saving the trace and the
   accepted pick for visual auditability.
 
----
 
-## How to run
-
-1. Install the dependencies listed above.
-2. Edit the `addpath` calls at the top of `peak_extraction_commented.m`
-   to point to your local toolbox installations.
-3. Edit the `load`, `filename`, and `peak_excel` paths to point to your
-   local copies of the input files.
-4. Set the run mode:
-   - `overwright = 0` → resume mode (skip subject × peak combinations
-     already processed and saved to disk);
-   - `overwright = 1` → recompute everything from scratch.
-5. Run the script. For each subject × peak the inspection figure will
-   open in a maximized window. Press `1` to accept, `0` to reject, or
-   click on the trace and press `1` to override.
-6. When the loop completes, the wide-format CSV is exported to
-   `./peak_extraction/`.
-
-The script is safe to interrupt at any point: results are saved after
-every accept/reject decision, and resuming with `overwright = 0` will
-skip everything already done.
-
----
-
-## Data availability
-
-The underlying TMS–EEG data, MRI data, and the master subject list will
-be deposited on [NeuGRID2](https://www.neugrid2.eu/) and are also
-available from the corresponding author upon reasonable request, in
-accordance with the data-sharing statement of the paper.
 
 ---
 
@@ -156,7 +90,7 @@ If you use or adapt this code, please cite:
 > Bertazzoli G., Canu E., Bagattini C., et al.
 > *Network-targeted neurophysiological biomarkers of dysconnectivity and
 > cognitive decline in Alzheimer's disease.*
-> https://doi.org/10.5281/zenodo.17162745
+> [https://doi.org/10.5281/zenodo.17162745](https://doi.org/10.5281/zenodo.17162745)
 
 A BibTeX entry will be added here once the paper is published.
 
@@ -173,6 +107,4 @@ For questions about the code or the underlying analyses:
 
 ## License
 
-\[Add license here. Common choices for academic code releases are
-MIT (permissive, allows commercial use) or CC-BY-4.0 (requires
-attribution). If unsure, MIT is the most common for code on GitHub.]
+\[CC-BY-4.0]
