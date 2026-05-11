@@ -12,7 +12,7 @@
 %   [journal, year, DOI when available]
 %
 % Author : Giacomo Bertazzoli (gbertazz@bidmc.harvard.edu)
-% License: <add license here, e.g. MIT or CC-BY-4.0>
+% License: CC-BY-4.0
 %
 % -------------------------------------------------------------------------
 % PROCEDURE OVERVIEW
@@ -22,8 +22,7 @@
 %   1. The TIME WINDOW and ELECTRODE ROI for each peak of interest are
 %      defined once, on the grand-grand-average across all participants
 %      and diagnostic groups. These are stored in an external Excel file
-%      (see `peak_extraction_grand_grand_average.xlsx`). Both are fixed for
-%      all subjects and are therefore independent of group membership.
+%      (see `peak_extraction_grand_grand_average.xlsx`) 
 %
 %   2. For each subject and each peak, the algorithm runs MATLAB's
 %      `findpeaks` on every electrode in the ROI, within the predefined
@@ -43,18 +42,10 @@
 %                        pick with the manually clicked coordinates
 %                        (used to correct clearly artifactual picks).
 %
-%      The operator was blinded to diagnostic group at this step: figure
-%      titles and filenames contain only the anonymized BIDS-style subject
-%      ID, which does not encode diagnosis.
-%
 %   4. Amplitude, latency, channel, and peak name are stored in a struct
 %      and saved to disk after every accept/reject decision, so the
 %      review can be paused and resumed (resume logic at the top of the
 %      main loop, controlled by `overwright`).
-%
-%   5. At the end of the script, the per-event struct is reshaped into a
-%      wide subject-by-measure table and exported as CSV for downstream
-%      statistical analysis in R.
 %
 % -------------------------------------------------------------------------
 % DEPENDENCIES
@@ -79,17 +70,11 @@
 %           xEnd      : end of the search window (seconds)
 %           elec      : space-separated list of ROI electrodes
 %
-%       IMPORTANT - REFERENCE VALUES FOR REPRODUCTION
 %       The canonical search windows and ROI electrodes used in the
 %       published analysis are those reported in the paper (see Table 2
 %       and the Methods/Supplementary Methods of Bertazzoli et al.) and
 %       in the Zenodo archive associated with this work:
 %           https://doi.org/10.5281/zenodo.17162745
-%       The local spreadsheet shipped with this script reflects the
-%       intermediate values produced by the collapsed-localizer
-%       procedure. When reproducing the analysis, please use the
-%       latencies and electrode lists reported in the paper and on
-%       Zenodo as ground truth.
 %
 %   - `TEP_DTI_measures_total_*.xlsx`, sheet 'Sheet1'
 %       Master subject list (column `ID_subj_NT`) used to restrict the
@@ -110,16 +95,6 @@
 %   - One .fig and one .tif file per (subject x peak), saving the trace
 %       and the accepted pick for visual auditability.
 %
-% -------------------------------------------------------------------------
-% NOTES ON REPRODUCIBILITY
-% -------------------------------------------------------------------------
-%   - The search window and ROI are fixed at the group level prior to
-%     subject-level extraction. The operator does not choose where or when
-%     to look; the operator only accepts, rejects, or corrects the
-%     algorithm's pick within the predefined window and ROI.
-%
-%   - All absolute paths below reflect the original analysis machine.
-%     Adapt them to your local layout before running.
 % =========================================================================
 
 
